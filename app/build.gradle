@@ -1,0 +1,95 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion compileSdkVersionExt
+    defaultConfig {
+
+        applicationId "com.example.rafaelanastacioalves"
+        buildToolsVersion buildToolsVersionExt
+        minSdkVersion minSdkVersionExt
+        targetSdkVersion targetSdkVersionExt
+        versionCode 11
+        versionName "0.1.1"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+
+    }
+
+
+    testBuildType "instrumentation"
+    buildTypes {
+
+        buildTypes.each {
+            it.buildConfigField "String", "API_BASE_URL", '"https://private-ff953-template25.apiary-mock.com"'
+            it.buildConfigField "boolean", "IS_TEST", 'false'
+
+        }
+        debug {
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        instrumentation {
+            initWith(buildTypes.debug)
+            testCoverageEnabled = true
+            buildConfigField "String", "API_BASE_URL", '"http://localhost:1234"'
+            buildConfigField "boolean", "IS_TEST", 'true'
+
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    androidTestImplementation('androidx.test.espresso:espresso-core:' + androidxEspresso, {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    androidTestImplementation 'androidx.test.ext:junit:' + androidxTest
+    androidTestImplementation "androidx.test:core:" + androidxTest
+    androidTestImplementation "androidx.arch.core:core-runtime:$androidxArch"
+    androidTestImplementation "androidx.arch.core:core-testing:$androidxArch"
+    androidTestImplementation 'androidx.test.espresso:espresso-intents:' + androidxEspresso
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:'+ androidxEspresso
+    testImplementation "org.mockito:mockito-core:$mockitoVersion"
+
+    //http + retrofit + gson
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitExt"
+    implementation "com.squareup.retrofit2:retrofit:$retrofitExt"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp3Ext"
+    implementation "com.squareup.okhttp3:mockwebserver:$mockWebServerExt"
+
+    // architecture components
+    implementation 'android.arch.lifecycle:extensions:' + archLifecycleVersion
+    annotationProcessor 'android.arch.lifecycle:compiler:' + archLifecycleVersion
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$androidKtxLifecycle"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$androidKtxLifecycle_livedata"
+    implementation "androidx.lifecycle:lifecycle-extensions:$androidKtxLifecycle"
+    implementation "androidx.room:room-runtime:$roomVersion"
+    kapt "androidx.room:room-compiler:$roomVersion"
+    implementation "androidx.room:room-ktx:$roomVersion"
+
+    //coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinVersionCore"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinVersionCore"
+
+    //other
+    implementation 'androidx.constraintlayout:constraintlayout:' + androidxContraintLayout
+    implementation "com.squareup.picasso:picasso:$picassoExt"
+    implementation 'androidx.annotation:annotation:' + androidxBasics
+    implementation 'androidx.recyclerview:recyclerview:' + androidxBasics
+    implementation 'com.google.android.material:material:' + materialLibrary
+    implementation 'androidx.appcompat:appcompat:' + androidxBasics
+    implementation 'androidx.legacy:legacy-support-v4:' + androidxLegacy
+
+
+
+}
+repositories {
+    mavenCentral()
+}
