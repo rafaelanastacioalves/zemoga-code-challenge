@@ -1,10 +1,8 @@
 package com.example.rafaelanastacioalves.moby.repository.database
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import com.example.rafaelanastacioalves.moby.domain.entities.Post
+import com.example.rafaelanastacioalves.moby.domain.entities.User
 
 @Dao
 interface DAO {
@@ -20,4 +18,18 @@ interface DAO {
 
     @Query("DELETE FROM post")
     fun deleteAllPosts()
+
+    @Query("SELECT * FROM post WHERE id = :postId")
+    fun getPostById(postId: String): Post?
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun savePost(post: Post): Long
+
+
+    @Query("SELECT * FROM user WHERE id = :userId")
+    fun getUserById(userId: String): User?
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun saveUser(user: User)
+
 }
