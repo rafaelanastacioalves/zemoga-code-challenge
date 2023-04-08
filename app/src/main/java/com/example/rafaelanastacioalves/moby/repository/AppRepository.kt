@@ -1,5 +1,6 @@
 package com.example.rafaelanastacioalves.moby.repository
 
+import com.example.rafaelanastacioalves.moby.domain.entities.Comment
 import com.example.rafaelanastacioalves.moby.domain.entities.Post
 import com.example.rafaelanastacioalves.moby.domain.entities.Resource
 import com.example.rafaelanastacioalves.moby.domain.entities.User
@@ -67,6 +68,26 @@ object AppRepository {
             }
 
         }.fromHttpAndDB()
+    }
+
+    suspend fun savePost(post: Post) {
+        appDao.savePost(post)
+    }
+
+    suspend fun getCommentsForPostId(id: String): Resource<List<Comment>> {
+        return object : NetworkBoundResource<List<Comment>, List<Comment>>(){
+            override suspend fun fecthFromHttp(): List<Comment>? {
+                return apiClient.getCommentsForPostId(id)
+            }
+
+            override suspend fun getFromDB(): List<Comment>? {
+                return null
+            }
+
+            override fun saveIntoDB(resultData: List<Comment>?) {
+            }
+
+        }.fromHttpOnly()
     }
 
 }

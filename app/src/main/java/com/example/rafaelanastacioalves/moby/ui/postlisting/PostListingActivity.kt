@@ -2,15 +2,12 @@ package com.example.rafaelanastacioalves.moby.ui.postlisting
 
 
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.AppCompatImageView
-import androidx.core.app.ActivityOptionsCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,7 +16,7 @@ import com.example.rafaelanastacioalves.moby.R
 import com.example.rafaelanastacioalves.moby.domain.entities.Post
 import com.example.rafaelanastacioalves.moby.domain.entities.Resource
 import com.example.rafaelanastacioalves.moby.ui.postdetailing.PostDetailingActivity
-import com.example.rafaelanastacioalves.moby.ui.postdetailing.EntityDetailsFragment
+import com.example.rafaelanastacioalves.moby.ui.postdetailing.PostDetailsFragment
 import com.example.rafaelanastacioalves.moby.listeners.RecyclerViewClickListener
 
 class PostListingActivity : AppCompatActivity(), RecyclerViewClickListener{
@@ -52,7 +49,7 @@ class PostListingActivity : AppCompatActivity(), RecyclerViewClickListener{
     }
 
     private fun setupViews() {
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_post_listing)
 
     }
 
@@ -84,7 +81,7 @@ class PostListingActivity : AppCompatActivity(), RecyclerViewClickListener{
         val post = postListAdapter!!.getItems()!!.get(position)
 
         val i = Intent(this, PostDetailingActivity::class.java)
-        i.putExtra(EntityDetailsFragment.POST_ID, post.id)
+        i.putExtra(PostDetailsFragment.POST_ID, post.id)
         startActivity(i)
 
     }

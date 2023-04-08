@@ -11,33 +11,51 @@ import androidx.core.text.HtmlCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.rafaelanastacioalves.moby.R
+import com.example.rafaelanastacioalves.moby.domain.entities.Comment
 import com.example.rafaelanastacioalves.moby.domain.entities.Post
-import com.example.rafaelanastacioalves.moby.domain.entities.Resource
 import com.example.rafaelanastacioalves.moby.domain.entities.User
-import com.squareup.picasso.Callback
-import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.fragment_detail_entity_detail_view.*
+import kotlinx.android.synthetic.main.fragment_post_detail.*
 
 
 /**
  * A simple [Fragment] subclass.
  */
-class EntityDetailsFragment : Fragment(), View.OnClickListener {
+class PostDetailsFragment : Fragment(), View.OnClickListener {
+    lateinit var recyclerView: RecyclerView
     lateinit private var mPostDetailViewModel: PostDetailViewModel
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         loadData()
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        recyclerView = view.findViewById(R.id.commentsRecyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+
+        super.onViewCreated(view, savedInstanceState)
+    }
+
     private fun loadData() {
-        val postId = arguments!!.getString(POST_ID)
+        val postId = arguments!!.getLong(POST_ID)
         mPostDetailViewModel =
             ViewModelProvider.NewInstanceFactory().create(PostDetailViewModel::class.java)
-        mPostDetailViewModel.loadData(postId)
+        mPostDetailViewModel.loadData(postId.toString())
             .observe(this, Observer { entityDetails -> setViewsWith(entityDetails?.data) })
         mPostDetailViewModel.userInfo.observe(this, { userInfo -> setViewsWith(userInfo.data) })
+        mPostDetailViewModel.postComments.observe(
+            this,
+            { comments -> setCommentsWith(comments.data) })
+    }
+
+    private fun setCommentsWith(data: List<Comment>?) {
+        data?.let { data ->
+            val adapter = CommentAdapter(data)
+            recyclerView.adapter = adapter
+        }
     }
 
     override fun onCreateView(
@@ -50,7 +68,7 @@ class EntityDetailsFragment : Fragment(), View.OnClickListener {
 
     private fun inflateViews(inflater: LayoutInflater, container: ViewGroup?): View {
         val rootView =
-            inflater.inflate(R.layout.fragment_detail_entity_detail_view, container, false)
+            inflater.inflate(R.layout.fragment_post_detail, container, false)
         return rootView
     }
 
@@ -75,13 +93,19 @@ class EntityDetailsFragment : Fragment(), View.OnClickListener {
     private fun setViewsWith(user: User?) {
         userName.setText(
             HtmlCompat.fromHtml(
-                getResources().getString(R.string.user_name_text, user?.username ?: getString(R.string.user_name_text)),
+                getResources().getString(
+                    R.string.user_name_text,
+                    user?.username ?: getString(R.string.nothing_to_show)
+                ),
                 HtmlCompat.FROM_HTML_SEPARATOR_LINE_BREAK_DIV
             )
         )
         userEmail.setText(
             HtmlCompat.fromHtml(
-                getResources().getString(R.string.user_email_text, user?.email ?: getString(R.string.nothing_to_show)),
+                getResources().getString(
+                    R.string.user_email_text,
+                    user?.email ?: getString(R.string.nothing_to_show)
+                ),
                 HtmlCompat.FROM_HTML_SEPARATOR_LINE_BREAK_DIV
             )
         )

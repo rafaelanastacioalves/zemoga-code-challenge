@@ -35,7 +35,7 @@ class PostListAdapter(context: Context) : RecyclerView.Adapter<PostItemViewHolde
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostItemViewHolder  {
         return PostItemViewHolder(
             LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.detail_entity_viewholder, parent, false),
+                    .inflate(R.layout.viewholder_post_detail, parent, false),
             recyclerViewClickListener,
             viewModel
         );

@@ -10,7 +10,7 @@ import com.example.rafaelanastacioalves.moby.R
 import com.example.rafaelanastacioalves.moby.domain.entities.Post
 import com.example.rafaelanastacioalves.moby.listeners.RecyclerViewClickListener
 import kotlinx.android.extensions.LayoutContainer
-import kotlinx.android.synthetic.main.detail_entity_viewholder.view.*
+import kotlinx.android.synthetic.main.viewholder_post_detail.view.*
 
 class PostItemViewHolder(override val containerView: View) : RecyclerView.ViewHolder(containerView), View.OnClickListener, LayoutContainer{
 
@@ -38,15 +38,11 @@ class PostItemViewHolder(override val containerView: View) : RecyclerView.ViewHo
     fun bind(aPost: Post, context: Context) {
 
         itemView.postTitle.setText(aPost.title)
-        itemView.postIdText.setText(context.getString(R.string.post_id_text, aPost.id))
+        itemView.postIdText.setText(context.getString(R.string.post_id_text, aPost.id.toString()))
         itemView.deletedText.setText(context.getString(R.string.deleted_value, aPost.deleted))
         itemView.favoritedText.setText(context.getString(R.string.favorited_value, aPost.favorited))
         itemView.favoriteButton.isSelected = aPost.favorited
-//        if (itemView.favoriteButton.isSelected) {
-//            itemView.favoriteButton.setColorFilter( context.resources.getColor(R.color.colorAccent), PorterDuff.Mode.SRC_IN)
-//        } else {
-//            itemView.favoriteButton.colorFilter = null
-//        }
+
         itemView.deleteButton.setOnClickListener {
             aPost.deleted = aPost.deleted.not()
             viewModel.onDeleteItemPosition(aPost)

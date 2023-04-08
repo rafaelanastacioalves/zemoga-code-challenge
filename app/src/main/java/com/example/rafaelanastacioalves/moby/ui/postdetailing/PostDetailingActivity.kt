@@ -13,15 +13,15 @@ class PostDetailingActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_entity_detail)
+        setContentView(R.layout.activity_post_comments)
         setupActionBar()
 
 
         if (savedInstanceState == null) {
             val arguments = Bundle()
-            arguments.putString(EntityDetailsFragment.POST_ID,
-                    intent.getStringExtra(EntityDetailsFragment.POST_ID))
-            val fragment = EntityDetailsFragment()
+            arguments.putLong(PostDetailsFragment.POST_ID,
+                    intent.getLongExtra(PostDetailsFragment.POST_ID,0))
+            val fragment = PostDetailsFragment()
             fragment.arguments = arguments
             supportFragmentManager.beginTransaction()
                     .add(R.id.entity_detail_fragment_container, fragment)

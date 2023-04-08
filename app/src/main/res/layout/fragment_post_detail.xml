@@ -50,6 +50,32 @@
 			android:text="Email"
 			app:layout_constraintStart_toStartOf="@+id/titleText"
 			app:layout_constraintTop_toBottomOf="@id/userName" />
+
+		<TextView
+			android:id="@+id/commentsTitle"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="16dp"
+			android:text="Comments"
+			android:textSize="20sp"
+			android:textStyle="bold"
+			app:layout_constraintBottom_toTopOf="@id/commentsRecyclerView"
+			app:layout_constraintStart_toStartOf="@+id/titleText"
+			app:layout_constraintTop_toBottomOf="@id/descriptionText" />
+
+		<androidx.recyclerview.widget.RecyclerView
+			android:id="@+id/commentsRecyclerView"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="16dp"
+			android:layout_marginEnd="16dp"
+			android:clipToPadding="true"
+			android:nestedScrollingEnabled="true"
+			android:overScrollMode="never"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="@+id/commentsTitle"
+			app:layout_constraintTop_toBottomOf="@+id/commentsTitle" />
 	</androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
 

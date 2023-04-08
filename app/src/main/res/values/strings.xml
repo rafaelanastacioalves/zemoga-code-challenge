@@ -7,4 +7,7 @@
     <string name="nothing_to_show">Nothing to Show</string>
     <string name="user_name_text"><![CDATA[<b>username</b>: %s]]></string>
 	<string name="user_email_text"><![CDATA[<b>email</b>: %s]]></string>
+    <string name="comment_bla_bla_bla">Comment: bla bla bla</string>
+    <string name="email_email_gmail_com">Email: email@gmail.com</string>
+    <string name="name_fulano">Name: Fulano</string>
 </resources>
