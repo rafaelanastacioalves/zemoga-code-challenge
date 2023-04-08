@@ -1,0 +1,10 @@
+<resources>
+	<string name="app_name">Zemoga Mobile Test</string>
+
+    <string name="deleted_value">deleted: %b</string>
+	<string name="favorited_value">favorited: %b</string>
+    <string name="post_id_text">Post ID: %s</string>
+    <string name="nothing_to_show">Nothing to Show</string>
+    <string name="user_name_text"><![CDATA[<b>username</b>: %s]]></string>
+	<string name="user_email_text"><![CDATA[<b>email</b>: %s]]></string>
+</resources>

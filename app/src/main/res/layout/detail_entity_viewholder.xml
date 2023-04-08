@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/detail_container"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:paddingHorizontal="16dp"
+	android:paddingVertical="16dp">
+
+	<TextView
+		android:id="@+id/postTitle"
+		style="@style/TextAppearance.AppCompat.Headline"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="16dp"
+		android:layout_marginEnd="8dp"
+		android:textSize="24sp"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintHorizontal_bias="1.0"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		tools:text="@string/detail_entitiy_title_textview" />
+
+	<ImageView
+		android:id="@+id/favoriteButton"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:src="@drawable/fav_icon_selector"
+		android:text="FAVORITE"
+		app:layout_constraintEnd_toEndOf="@+id/postTitle"
+		app:layout_constraintTop_toBottomOf="@+id/postTitle" />
+
+	<Button
+		android:id="@+id/deleteButton"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="DELETE"
+		app:layout_constraintStart_toStartOf="@+id/postTitle"
+		app:layout_constraintTop_toBottomOf="@+id/postTitle" />
+
+	<TextView
+		android:id="@+id/deletedText"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="16dp"
+		android:text="@string/deleted_value"
+		app:layout_constraintStart_toStartOf="@+id/deleteButton"
+		app:layout_constraintTop_toBottomOf="@+id/deleteButton" />
+
+	<TextView
+		android:id="@+id/favoritedText"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="16dp"
+		android:text="@string/favorited_value"
+		app:layout_constraintEnd_toEndOf="@+id/favoriteButton"
+		app:layout_constraintTop_toBottomOf="@+id/favoriteButton" />
+
+	<TextView
+		android:id="@+id/postIdText"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="8dp"
+		android:layout_marginEnd="8dp"
+		android:text="TextView"
+		app:layout_constraintBottom_toBottomOf="@+id/deleteButton"
+		app:layout_constraintEnd_toStartOf="@+id/favoriteButton"
+		app:layout_constraintStart_toEndOf="@+id/deleteButton"
+		app:layout_constraintTop_toBottomOf="@+id/postTitle" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
