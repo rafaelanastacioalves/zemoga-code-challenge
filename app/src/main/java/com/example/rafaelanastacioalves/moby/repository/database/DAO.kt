@@ -7,8 +7,9 @@ import com.example.rafaelanastacioalves.moby.domain.entities.User
 @Dao
 interface DAO {
 
-    @Query("SELECT * FROM post")
+    @Query("SELECT * FROM post ORDER BY id ASC")
     fun getPostList(): List<Post>
+
 
     @Insert
     fun savePostList(resultData: List<Post>?)
@@ -31,5 +32,7 @@ interface DAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun saveUser(user: User)
+
+
 
 }
