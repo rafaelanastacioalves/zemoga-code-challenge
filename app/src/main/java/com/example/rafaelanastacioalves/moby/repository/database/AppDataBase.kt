@@ -10,6 +10,8 @@ import com.example.rafaelanastacioalves.moby.domain.entities.User
 
 @Database(entities = [Post::class, User::class], version = 2)
 abstract class AppDataBase : RoomDatabase() {
+
+
     abstract fun appDAO(): DAO
 
     companion object {

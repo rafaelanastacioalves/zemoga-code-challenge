@@ -13,16 +13,16 @@ import com.example.rafaelanastacioalves.moby.domain.interactors.PostDetailsInter
 import com.example.rafaelanastacioalves.moby.domain.interactors.UserDetailInteractor
 
 
-internal class PostDetailViewModel : ViewModel() {
+internal class PostDetailViewModel(
+    var userDetailsInteractor: UserDetailInteractor = UserDetailInteractor(),
+    var postDetailsInteractor: PostDetailsInteractor = PostDetailsInteractor(),
+    var postCommentsInteractor: PostCommentsInteractor = PostCommentsInteractor()
 
-    private val userDetailsInteractor: UserDetailInteractor = UserDetailInteractor()
+) : ViewModel() {
+
     val postDetails = MutableLiveData<Resource<Post>>()
     val postComments = MutableLiveData<Resource<List<Comment>>>()
-
     val userInfo = MutableLiveData<Resource<User>>()
-
-    val postDetailsInteractor: PostDetailsInteractor = PostDetailsInteractor()
-    val postCommentsInteractor: PostCommentsInteractor = PostCommentsInteractor()
 
     fun loadData(postId: String?): MutableLiveData<Resource<Post>> {
 

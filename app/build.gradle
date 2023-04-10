@@ -45,6 +45,12 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.test.ext:junit-ktx:1.1.5'
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'org.junit.jupiter:junit-jupiter'
 
     androidTestImplementation('androidx.test.espresso:espresso-core:' + androidxEspresso, {
         exclude group: 'com.android.support', module: 'support-annotations'
@@ -53,9 +59,17 @@ dependencies {
     androidTestImplementation "androidx.test:core:" + androidxTest
     androidTestImplementation "androidx.arch.core:core-runtime:$androidxArch"
     androidTestImplementation "androidx.arch.core:core-testing:$androidxArch"
+    testImplementation "androidx.arch.core:core-testing:$androidxArch"
     androidTestImplementation 'androidx.test.espresso:espresso-intents:' + androidxEspresso
     androidTestImplementation 'androidx.test.espresso:espresso-contrib:'+ androidxEspresso
     testImplementation "org.mockito:mockito-core:$mockitoVersion"
+    testImplementation "io.mockk:mockk:1.12.0"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$kotlinxCoroutinesVersion"
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.robolectric:robolectric:4.9'
+
 
     //http + retrofit + gson
     implementation "com.squareup.retrofit2:converter-gson:$retrofitExt"

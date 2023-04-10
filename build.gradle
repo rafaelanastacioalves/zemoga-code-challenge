@@ -43,7 +43,7 @@ ext {
     roomVersion = "2.2.3"
     androidKtxLifecycle = "2.2.+"
     androidKtxLifecycle_livedata = "2.2.0-alpha01"
-    mockitoVersion = "4.11"
+    mockitoVersion = "5.2.0"
     androidxBasics = "1.1.0"
     androidxLegacy = "1.0.0"
     materialLibrary = "1.0.0"
@@ -51,6 +51,8 @@ ext {
     androidxEspresso = "3.1.0"
     androidxArch = "2.1.0"
     androidxTest = "1.0.0"
+    kotlinxCoroutinesVersion = '1.6.0'
+    junitJupiterVersion = '5.7.2'
 
 
 

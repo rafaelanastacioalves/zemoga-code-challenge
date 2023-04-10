@@ -10,9 +10,12 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 
-class PostListingViewModel : ViewModel() {
-    val isOnlyFavorites = MutableLiveData<Boolean>(false)
-
+class PostListingViewModel(
+    var postListInteractor: PostListInteractor = PostListInteractor(),
+    private val repository: AppRepository = AppRepository
+) : ViewModel() {
+    val _isOnlyFavorites = MutableLiveData<Boolean>(false)
+    val isOnlyFavorites : LiveData<Boolean> = _isOnlyFavorites
     val postListLiveData = MutableLiveData<Resource<List<Post>>>()
 
     val finalPostLiveData = isOnlyFavorites.switchMap { onlyFav ->
@@ -30,8 +33,6 @@ class PostListingViewModel : ViewModel() {
         }
 
     }
-    private val postListInteractor: PostListInteractor = PostListInteractor()
-    private val repository = AppRepository
 
 
     fun loadDataIfNecessary() {
@@ -65,7 +66,7 @@ class PostListingViewModel : ViewModel() {
     }
 
     fun showOnlyFavorites() {
-        isOnlyFavorites.postValue(isOnlyFavorites.value!!.not())
+        _isOnlyFavorites.postValue(_isOnlyFavorites.value!!.not())
         loadDataIfNecessary()
     }
 
