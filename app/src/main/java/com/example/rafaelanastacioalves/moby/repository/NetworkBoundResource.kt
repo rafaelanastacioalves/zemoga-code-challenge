@@ -11,7 +11,6 @@ import java.net.HttpURLConnection
 
 abstract class NetworkBoundResource<ResultType, RequestType> {
 
-    val viewModelScope = CoroutineScope(Dispatchers.IO)
     private lateinit var result: Resource<ResultType>
 
     abstract suspend fun fecthFromHttp(): ResultType?
@@ -32,7 +31,7 @@ abstract class NetworkBoundResource<ResultType, RequestType> {
             } else {
                 result = Resource.error(Resource.Status.GENERIC_ERROR,
                         null,
-                        null)
+                        exception.message)
             }
         }
     }
@@ -57,7 +56,7 @@ abstract class NetworkBoundResource<ResultType, RequestType> {
                 Log.e("DataBase", exception.message ?: "No message")
                 result = Resource.error(Resource.Status.GENERIC_ERROR,
                         null,
-                        null)
+                        exception.message)
             }
         }
     }
@@ -68,14 +67,14 @@ abstract class NetworkBoundResource<ResultType, RequestType> {
                 result = Resource.error(
                         Resource.Status.INTERNAL_SERVER_ERROR
                         , null
-                        , null)
+                        , exception.message())
             }
 
             else -> {
                 result = Resource.error(
                         Resource.Status.GENERIC_ERROR,
                         null,
-                        null
+                        exception.message
                 )
             }
 

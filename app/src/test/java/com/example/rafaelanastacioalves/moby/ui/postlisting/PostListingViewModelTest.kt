@@ -10,7 +10,6 @@ import com.example.rafaelanastacioalves.moby.domain.interactors.PostListInteract
 import com.example.rafaelanastacioalves.moby.repository.AppRepository
 import com.example.rafaelanastacioalves.moby.repository.database.AppDataBase
 import io.mockk.*
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 import org.junit.*
 import org.junit.Assert.assertEquals
@@ -19,7 +18,7 @@ import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 
 @RunWith(RobolectricTestRunner::class)
-class shitTest {
+class PostListingViewModelTest {
 
     @Rule
     @JvmField

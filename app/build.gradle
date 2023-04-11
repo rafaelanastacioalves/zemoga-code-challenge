@@ -47,10 +47,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.test.ext:junit-ktx:1.1.5'
     testImplementation 'org.junit.jupiter:junit-jupiter'
-    testImplementation 'org.junit.jupiter:junit-jupiter'
-    testImplementation 'org.junit.jupiter:junit-jupiter'
-    testImplementation 'org.junit.jupiter:junit-jupiter'
-    testImplementation 'org.junit.jupiter:junit-jupiter'
+
 
     androidTestImplementation('androidx.test.espresso:espresso-core:' + androidxEspresso, {
         exclude group: 'com.android.support', module: 'support-annotations'
@@ -64,6 +61,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-contrib:'+ androidxEspresso
     testImplementation "org.mockito:mockito-core:$mockitoVersion"
     testImplementation "io.mockk:mockk:1.12.0"
+    androidTestImplementation "io.mockk:mockk-android:1.12.0"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitJupiterVersion"
     testImplementation "org.junit.jupiter:junit-jupiter-api:$junitJupiterVersion"
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$kotlinxCoroutinesVersion"
