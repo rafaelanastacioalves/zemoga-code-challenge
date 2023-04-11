@@ -40,5 +40,5 @@ I used the following libraries and solutions:
 
 ## How to run
 
-The app can be built like any other app. No additional instructions about that.
+The app can be built like any other app. Just important to remember to use Java 11 to build the app.
 The same applies to tests.
