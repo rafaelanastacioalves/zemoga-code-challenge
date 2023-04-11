@@ -26,7 +26,7 @@ I used the following libraries and solutions:
 
 - **Mockk**: Library used to create mocks of classes to facilitate class isolation in unit tests. [Referência: https://mockk.io/]
 
-- **Coroutines**: Used for asynchronous tasks during app execution. [Referência: https://kotlinlang.org/docs/coroutines/]
+- **Coroutines**: Used for asynchronous tasks during app execution. [Referência: https://developer.android.com/kotlin/coroutines?hl=pt-br]
 
 - **Android Architecture Components**: Used for implementing the MVVM architecture. Used LiveData, ViewModel, among others. [Referência: https://developer.android.com/topic/libraries/architecture]
 
