@@ -1,8 +1,6 @@
 # Zemoga Code Challenge
-<div class="images-container">
-  <img src="captures/Screenshot_1523145822.png" alt="listing screen" width="400"/>
-  <img src="captures/Screenshot_1523145868.png" alt="details screen" width="400"/>
-</div>
+
+![listing screen](captures/Screenshot_1523145822.png "listing screen") ![details screen](captures/Screenshot_1523145868.png "details screen")
 
 ## General Description
 
@@ -22,15 +20,15 @@ like in the Favorites Only feature, I tried to add some async mechanism by keepi
 
 I used the following libraries and solutions:
 
-- **Retrofit**: Used to fetch data remotely. [Referência: https://square.github.io/retrofit/]
+- **Retrofit**: Used to fetch data remotely. [Reference: https://square.github.io/retrofit/]
 
-- **Mockk**: Library used to create mocks of classes to facilitate class isolation in unit tests. [Referência: https://mockk.io/]
+- **Mockk**: Library used to create mocks of classes to facilitate class isolation in unit tests. [Reference: https://mockk.io/]
 
-- **Coroutines**: Used for asynchronous tasks during app execution. [Referência: https://developer.android.com/kotlin/coroutines?hl=pt-br]
+- **Coroutines**: Used for asynchronous tasks during app execution. [Reference: https://developer.android.com/kotlin/coroutines?hl=en]
 
-- **Android Architecture Components**: Used for implementing the MVVM architecture. Used LiveData, ViewModel, among others. [Referência: https://developer.android.com/topic/libraries/architecture]
+- **Android Architecture Components**: Used for implementing the MVVM architecture. Used LiveData, ViewModel, among others. [Reference: https://developer.android.com/topic/libraries/architecture]
 
-- **Room**: Used for data model storage. [Referência: https://developer.android.com/training/data-storage/room]
+- **Room**: Used for data model storage. [Reference: https://developer.android.com/training/data-storage/room]
 
 ## What was not implemented
 
