@@ -19,7 +19,6 @@ android {
     }
 
 
-    testBuildType "instrumentation"
     buildTypes {
 
         buildTypes.each {
@@ -28,18 +27,13 @@ android {
 
         }
         debug {
+            testCoverageEnabled = true
         }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-        instrumentation {
-            initWith(buildTypes.debug)
-            testCoverageEnabled = true
-            buildConfigField "String", "API_BASE_URL", '"http://localhost:1234"'
-            buildConfigField "boolean", "IS_TEST", 'true'
 
-        }
     }
 }
 
