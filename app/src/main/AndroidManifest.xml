@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools"
-          package="com.example.rafaelanastacioalves.moby">
+          package="com.example.rafaelanastacioalves.zemoga">
 	<uses-permission android:name="android.permission.INTERNET" />
 	<application
-		android:name=".application.MainApplication"
+		android:name="com.example.rafaelanastacioalves.zemoga.application.MainApplication"
 		android:allowBackup="true"
 		android:icon="@mipmap/ic_launcher"
 		android:label="@string/app_name"
@@ -12,7 +12,7 @@
 		android:supportsRtl="true"
 		android:theme="@style/AppTheme"
 		tools:replace="android:label">
-		<activity android:name="com.example.rafaelanastacioalves.moby.ui.postlisting.PostListingActivity"
+		<activity android:name="com.example.rafaelanastacioalves.zemoga.ui.postlisting.PostListingActivity"
 			android:exported="true">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN"/>
@@ -20,12 +20,12 @@
 				<category android:name="android.intent.category.LAUNCHER"/>
 			</intent-filter>
 		</activity>
-		<activity android:name="com.example.rafaelanastacioalves.moby.ui.postdetailing.PostDetailingActivity"
-		          android:parentActivityName="com.example.rafaelanastacioalves.moby.ui.postlisting.PostListingActivity"
+		<activity android:name="com.example.rafaelanastacioalves.zemoga.ui.postdetailing.PostDetailingActivity"
+		          android:parentActivityName="com.example.rafaelanastacioalves.zemoga.ui.postlisting.PostListingActivity"
 		          android:theme="@style/AppTheme.NoActionBar">
 			<meta-data
 				android:name="android.support.PARENT_ACTIVITY"
-				android:value="com.example.rafaelanastacioalves.moby.ui.postlisting.PostListingActivity" />
+				android:value="com.example.rafaelanastacioalves.zemoga.ui.postlisting.PostListingActivity" />
 		</activity>
 	</application>
 

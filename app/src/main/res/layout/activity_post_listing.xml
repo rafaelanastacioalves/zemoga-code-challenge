@@ -5,7 +5,7 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	tools:context="com.example.rafaelanastacioalves.moby.ui.postlisting.PostListingActivity">
+	tools:context="com.example.rafaelanastacioalves.zemoga.ui.postlisting.PostListingActivity">
 
 	<androidx.recyclerview.widget.RecyclerView
 		android:id="@+id/main_entity_list"
