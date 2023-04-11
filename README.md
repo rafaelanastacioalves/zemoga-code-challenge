@@ -29,3 +29,14 @@ I used the following libraries and solutions:
 - **Android Architecture Components**: Used for implementing the MVVM architecture. Used LiveData, ViewModel, among others.
 
 - **Room**: Used for data model storage.
+
+## What was not implemented
+
+**Mechanism to load all posts from API**: This mechanism occurs, but we do not have control over when to force that. The implemented mechanism fetches from API if there is no local data, for the sake of simplicity.
+
+**UI Tests**: UI tests are harder to keep in projects as they take too long to be executed and are prone to flaky errors. So for time-saving purposes, I didn't add any UI tests.
+
+## How to run
+
+The app can be built like any other app. No additional instructions about that.
+The same applies to tests.
