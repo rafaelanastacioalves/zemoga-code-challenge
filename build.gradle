@@ -29,7 +29,7 @@ allprojects {
 
 ext {
     compileSdkVersionExt = 33
-    buildToolsVersionExt = "28.0.3"
+    buildToolsVersionExt = "33.0.1"
     minSdkVersionExt = 26
     targetSdkVersionExt = 33
     retrofitExt = "2.6.+"
