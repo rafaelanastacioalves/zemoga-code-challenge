@@ -7,7 +7,7 @@
 /build
 .externalNativeBuild
 .idea/
-gradle/
+gradle/wrapper/gradle-wrapper.jar
 gradlew
 *.log
 *.hprof
