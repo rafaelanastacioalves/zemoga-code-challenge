@@ -44,7 +44,7 @@ class PostDetailsFragment : Fragment(), View.OnClickListener {
         mPostDetailViewModel =
             ViewModelProvider.NewInstanceFactory().create(PostDetailViewModel::class.java)
         mPostDetailViewModel.loadData(postId.toString())
-            .observe(this, Observer { entityDetails -> setViewsWith(entityDetails?.data) })
+            .observe(this, Observer { result -> setViewsWith(result?.data) })
         mPostDetailViewModel.userInfo.observe(this, { userInfo -> setViewsWith(userInfo.data) })
         mPostDetailViewModel.postComments.observe(
             this,

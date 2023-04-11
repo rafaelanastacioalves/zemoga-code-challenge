@@ -21,7 +21,7 @@ class PostAdapterTest {
     private var adapter: PostListAdapter = Mockito.spy(PostListAdapter(context))
 
     @Test
-    open fun should_UpdateMainEntityList_WhenSetItemList(): Unit {
+    open fun should_UpdatePost_WhenSetItemList(): Unit {
         doNothing().`when`(adapter).updateList()
         val mockedPostLists: List<Post> = ArrayList(Arrays.asList(
                 Post(

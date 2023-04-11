@@ -17,13 +17,13 @@ object AppRepository {
         return object : NetworkBoundResource<List<Post>, List<Post>>() {
             override suspend fun fecthFromHttp(): List<Post>? {
 
-                return apiClient.getMainEntityList()
+                return apiClient.getPosts()
             }
 
             override suspend fun getFromDB(): List<Post>? {
-                val mainEntityList = appDao.getPostList()
-                return if(mainEntityList.isNotEmpty()){
-                    mainEntityList
+                val postList = appDao.getPostList()
+                return if(postList.isNotEmpty()){
+                    postList
                 }else{
                     null
                 }

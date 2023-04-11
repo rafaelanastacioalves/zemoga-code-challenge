@@ -30,12 +30,12 @@ class AppDataBaseTest {
     }
 
     @Test
-    fun when_savingMainEntity_Should_ReturnMainEntity() {
+    fun when_savingPosts_Should_ReturnPosts() {
 
         AppDataBase.setupAtApplicationStartup(context)
         testedDAO.deleteAllPosts()
 
-        val mainEntityList: List<Post> = Arrays.asList(
+        val posts: List<Post> = Arrays.asList(
                 Post(
                         1L,
                         "1",
@@ -49,29 +49,29 @@ class AppDataBaseTest {
                         "body",
                         false))
         
-        testedDAO.savePostList(mainEntityList)
+        testedDAO.savePostList(posts)
 
-        val restoredMainEntityList = testedDAO.getPostList()
-        val restoredFirstMainEntity = restoredMainEntityList.get(0)
+        val restoredPosts = testedDAO.getPostList()
+        val restoredFirstPost = restoredPosts.get(0)
 
-        assertThat(restoredMainEntityList.size, CoreMatchers.`is`(2))
-        assertThat(restoredFirstMainEntity.title, StringContains("Title"))
-        assertThat(restoredFirstMainEntity.userId, StringContains("1"))
-        assertThat(restoredFirstMainEntity.deleted, Matchers.equalTo(true))
-        assertThat(restoredFirstMainEntity.favorited, Matchers.equalTo(false))
+        assertThat(restoredPosts.size, CoreMatchers.`is`(2))
+        assertThat(restoredFirstPost.title, StringContains("Title"))
+        assertThat(restoredFirstPost.userId, StringContains("1"))
+        assertThat(restoredFirstPost.deleted, Matchers.equalTo(true))
+        assertThat(restoredFirstPost.favorited, Matchers.equalTo(false))
 
     }
 
     @Test
-    fun when_ThereIsNoMainEntity_Should_Return_EmptyList() {
+    fun when_ThereIsNoPosts_Should_Return_EmptyList() {
         AppDataBase.setupAtApplicationStartup(context)
         val testedDAO: DAO = testedDAO
 
         testedDAO.deleteAllPosts()
 
-        val restoredMainEntityList = testedDAO.getPostList()
+        val restoredPosts = testedDAO.getPostList()
 
-        assertThat(restoredMainEntityList.size, CoreMatchers.`is`(0))
+        assertThat(restoredPosts.size, CoreMatchers.`is`(0))
     }
 
 }

@@ -8,12 +8,12 @@ import org.junit.Test
 class PostTest {
 
     @Test
-    fun should_giveBasicProperties_WhenMainEntityCreatedOnlyWithTitle() {
+    fun should_giveBasicProperties_WhenPostsCreatedOnlyWithTitle() {
 
-        var testedMainEntitty: Post = createPost(1,)
-        assertThat(testedMainEntitty.id, `is`(equalTo(1)))
-        assertThat(testedMainEntitty.title, `is`(equalTo("title")))
-        assertThat(testedMainEntitty.deleted, `is`(equalTo(false)))
+        var testedPost: Post = createPost(1,)
+        assertThat(testedPost.id, `is`(equalTo(1)))
+        assertThat(testedPost.title, `is`(equalTo("title")))
+        assertThat(testedPost.deleted, `is`(equalTo(false)))
     }
 
     fun createPost(id: Long): Post {

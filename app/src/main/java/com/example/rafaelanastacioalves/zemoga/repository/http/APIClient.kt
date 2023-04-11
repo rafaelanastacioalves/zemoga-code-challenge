@@ -9,7 +9,7 @@ import retrofit2.http.Path
 
 interface APIClient {
     @GET("/posts")
-    suspend fun getMainEntityList(): List<Post>;
+    suspend fun getPosts(): List<Post>;
 
     @GET("/posts/{postId}")
     suspend fun getPostById(@Path("postId") postId: String): Post
