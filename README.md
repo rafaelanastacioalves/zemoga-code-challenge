@@ -1,6 +1,7 @@
 # Zemoga Code Challenge
 
-![listing screen](captures/Screenshot_1523145822.png "listing screen") ![details screen](captures/Screenshot_1523145868.png "details screen")
+![listing screen](https://user-images.githubusercontent.com/5789073/236656762-68a9e5f3-2691-45d5-8639-092a395e4ca5.png) 
+![detail screen] (https://user-images.githubusercontent.com/5789073/236656800-9bc878df-0829-4659-966c-ac2bbb8aba9b.png)
 
 ## General Description
 
